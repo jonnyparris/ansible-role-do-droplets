@@ -53,15 +53,15 @@
   with_items: "{{ do_droplets_with_ip }}"
   when: do_inventory_file is defined and do_inventory_file
 
-- name: "Add droplets to hosts file"
-  become: true
-  lineinfile:
-    dest: "{{ do_hosts_file }}"
-    regexp: ".*{{ item.name }}$"
-    line: "{{ item.ip }}\t{{ item.name }}"
-    state: present
-  with_items: "{{ do_droplets_with_ip }}"
-  when: do_hosts_file is defined and do_inventory_file
+# - name: "Add droplets to hosts file"
+#   become: true
+#   lineinfile:
+#     dest: "{{ do_hosts_file }}"
+#     regexp: ".*{{ item.name }}$"
+#     line: "{{ item.ip }}\t{{ item.name }}"
+#     state: present
+#   with_items: "{{ do_droplets_with_ip }}"
+#   when: do_hosts_file is defined and do_inventory_file
 
 - name: "Read remote public key"
   command: "ssh-keyscan -t ecdsa-sha2-nistp256 -p {{ item.port }} {{ item.name }} "
