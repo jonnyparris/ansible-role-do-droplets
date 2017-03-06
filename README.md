@@ -67,8 +67,6 @@ do_droplets: []
 
 # Inventory file to update
 do_inventory_file:
-# Hosts file to update
-do_hosts_file: /etc/hosts
 ```
 
 ## Dependencies
